@@ -2,10 +2,10 @@ package com.gildedrose;
 
 public class UpdateStrategy {
     void updateItem(Item item) {
-        if (!item.name.equals("Aged Brie")
-                && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+        if (!isAgedBrie(item)
+                && !isPasses(item)) {
             if (item.quality > 0) {
-                if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                if (!isSulfuras(item)) {
                     item.quality = item.quality - 1;
                 }
             }
@@ -13,7 +13,7 @@ public class UpdateStrategy {
             if (item.quality < 50) {
                 item.quality = item.quality + 1;
 
-                if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                if (isPasses(item)) {
                     if (item.sell_in < 11) {
                         if (item.quality < 50) {
                             item.quality = item.quality + 1;
@@ -29,20 +29,20 @@ public class UpdateStrategy {
             }
         }
 
-        if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+        if (!isSulfuras(item)) {
             item.sell_in = item.sell_in - 1;
         }
 
         if (item.sell_in < 0) {
-            if (!item.name.equals("Aged Brie")) {
-                if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            if (!isAgedBrie(item)) {
+                if (!isPasses(item)) {
                     if (item.quality > 0) {
-                        if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                        if (!isSulfuras(item)) {
                             item.quality = item.quality - 1;
                         }
                     }
                 } else {
-                    item.quality = item.quality - item.quality;
+                    item.quality = 0;
                 }
             } else {
                 if (item.quality < 50) {
@@ -50,5 +50,17 @@ public class UpdateStrategy {
                 }
             }
         }
+    }
+
+    protected boolean isSulfuras(Item item) {
+        return item.name.equals("Sulfuras, Hand of Ragnaros");
+    }
+
+    protected boolean isPasses(Item item) {
+        return item.name.equals("Backstage passes to a TAFKAL80ETC concert");
+    }
+
+    protected boolean isAgedBrie(Item item) {
+        return item.name.equals("Aged Brie");
     }
 }

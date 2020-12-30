@@ -16,8 +16,8 @@ class GildedRose {
     }
 
     private SelfUpdateItem toSelfUpdateItem(Item item) {
-        if (!item.name.equals("Aged Brie")) {
-            return new SelfUpdateItem(item);
+        if (item.name.equals("Aged Brie")) {
+            return new SelfUpdateItem(item, new AgedBrieStrategy());
         }
         return new SelfUpdateItem(item);
     }
