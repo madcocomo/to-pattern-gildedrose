@@ -19,6 +19,9 @@ class GildedRose {
         if (item.name.equals("Aged Brie")) {
             return new SelfUpdateItem(item, new AgedBrieStrategy());
         }
+        if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            return new SelfUpdateItem(item, new PassesStrategy());
+        }
         return new SelfUpdateItem(item);
     }
 
