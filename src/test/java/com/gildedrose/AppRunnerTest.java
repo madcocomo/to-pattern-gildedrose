@@ -1,6 +1,5 @@
 package com.gildedrose;
 
-import com.gildedrose.AppRunner;
 import com.google.common.base.Charsets;
 import org.junit.Test;
 

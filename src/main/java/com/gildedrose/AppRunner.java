@@ -38,19 +38,19 @@ public class AppRunner {
         System.out.println("OMGHAI!");
         for (int i = 0; i < days; i++) {
             printItemsInDay(app.items, i);
-            app.update_quality();
+            app.updateQuality();
         }
     }
 
-    private static void printItemsInDay(Item[] items, int i) {
+    private static void printItemsInDay(SelfUpdateItem[] items, int i) {
         printDayHeader(i);
         printColumeTitle();
         printItems(items);
         printLineBreak();
     }
 
-    private static void printItems(Item[] items) {
-        for (Item item : items) {
+    private static void printItems(SelfUpdateItem[] items) {
+        for (SelfUpdateItem item : items) {
             System.out.println(item);
         }
     }
