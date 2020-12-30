@@ -22,6 +22,9 @@ class GildedRose {
         if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
             return new SelfUpdateItem(item, new PassesStrategy());
         }
+        if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
+            return new SelfUpdateItem(item, new SulfurasStrategy());
+        }
         return new SelfUpdateItem(item);
     }
 
