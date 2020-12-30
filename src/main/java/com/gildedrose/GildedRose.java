@@ -16,16 +16,22 @@ class GildedRose {
     }
 
     private SelfUpdateItem toSelfUpdateItem(Item item) {
+        UpdateStrategy strategy = getUpdateStrategyFor(item);
+        return new SelfUpdateItem(item, strategy);
+    }
+
+    private UpdateStrategy getUpdateStrategyFor(Item item) {
+        UpdateStrategy strategy;
         if (item.name.equals("Aged Brie")) {
-            return new SelfUpdateItem(item, new AgedBrieStrategy());
+            strategy = new AgedBrieStrategy();
+        } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            strategy = new PassesStrategy();
+        } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
+            strategy = new SulfurasStrategy();
+        } else {
+            strategy = new NormalItemStrategy();
         }
-        if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            return new SelfUpdateItem(item, new PassesStrategy());
-        }
-        if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-            return new SelfUpdateItem(item, new SulfurasStrategy());
-        }
-        return new SelfUpdateItem(item, new NormalItemStrategy());
+        return strategy;
     }
 
     public void updateQuality() {
