@@ -1,18 +1,12 @@
 package com.gildedrose;
 
 public class SelfUpdateItem {
-    UpdateStrategy strategy = new UpdateStrategy();
+    UpdateStrategy strategy;
     private final Item item;
 
     public SelfUpdateItem(Item item, UpdateStrategy strategy) {
         this.item = item;
-        if (strategy != null) {
-            this.strategy = strategy;
-        }
-    }
-
-    public SelfUpdateItem(Item item) {
-        this(item, null);
+        this.strategy = strategy;
     }
 
     public void update() {

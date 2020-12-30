@@ -25,7 +25,7 @@ class GildedRose {
         if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
             return new SelfUpdateItem(item, new SulfurasStrategy());
         }
-        return new SelfUpdateItem(item);
+        return new SelfUpdateItem(item, new NormalItemStrategy());
     }
 
     public void updateQuality() {

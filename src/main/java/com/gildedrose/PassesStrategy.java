@@ -1,8 +1,8 @@
 package com.gildedrose;
 
-public class PassesStrategy extends UpdateStrategy {
+public class PassesStrategy extends UpdateStrategyBase {
     @Override
-    void updateItem(Item item) {
+    public void updateItem(Item item) {
         if (item.quality < 50) {
             item.quality = item.quality + 1;
 
