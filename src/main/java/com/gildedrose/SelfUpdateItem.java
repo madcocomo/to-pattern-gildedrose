@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import com.gildedrose.strategy.UpdateStrategy;
+
 public class SelfUpdateItem {
     private final UpdateStrategy strategy;
     private final Item item;
