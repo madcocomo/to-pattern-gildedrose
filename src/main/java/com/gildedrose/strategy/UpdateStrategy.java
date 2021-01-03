@@ -1,7 +1,7 @@
 package com.gildedrose.strategy;
 
-import com.gildedrose.Item;
+import com.gildedrose.item.UnionItemAdapter;
 
 public interface UpdateStrategy {
-    void updateItem(Item item);
+    void updateItem(UnionItemAdapter item);
 }

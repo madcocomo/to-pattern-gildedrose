@@ -1,10 +1,10 @@
 package com.gildedrose.strategy;
 
-import com.gildedrose.Item;
+import com.gildedrose.item.UnionItemAdapter;
 
 public class AgedBrieStrategy extends UpdateStrategyBase {
     @Override
-    public void updateItem(Item item) {
+    public void updateItem(UnionItemAdapter item) {
         increaseQuality(item);
 
         decreaseSellIn(item);

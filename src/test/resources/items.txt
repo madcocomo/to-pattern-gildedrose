@@ -1,4 +1,4 @@
-+5 Dexterity Vest; 3; 20
+5 Dexterity Vest; 3; 20
 Aged Brie; 2; 41
 Elixir of the Mongoose; 5; 5
 Sulfuras, Hand of Ragnaros; 0; 80

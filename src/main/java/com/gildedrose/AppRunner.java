@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import com.gildedrose.item.UnionItemAdapter;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -33,7 +35,7 @@ public class AppRunner {
         updateAndPrintItems(days, createItemsFromString(items));
     }
 
-    private static void updateAndPrintItems(int days, Item[] items) {
+    private static void updateAndPrintItems(int days, UnionItemAdapter[] items) {
         GildedRose app = new GildedRose(items);
         System.out.println("OMGHAI!");
         for (int i = 0; i < days; i++) {
@@ -67,11 +69,11 @@ public class AppRunner {
         System.out.println("-------- day " + i + " --------");
     }
 
-    private static Item[] createItemsFromString(List<String> itemStrings) {
+    private static UnionItemAdapter[] createItemsFromString(List<String> itemStrings) {
         return itemStrings.stream()
                 .map(str -> str.split(" *; *"))
                 .map(strs -> GildedRose.createItem(strs[0], Integer.parseInt(strs[1]), Integer.parseInt(strs[2])))
-                .toArray(Item[]::new);
+                .toArray(UnionItemAdapter[]::new);
     }
 
     private static Optional<List<String>> readContentFrom(String arg) throws IOException {

@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.gildedrose.item;
 
 public class AlienItem {
     private String code;
@@ -34,4 +34,5 @@ public class AlienItem {
     public void setPrice(int price) {
         this.price = price;
     }
+
 }

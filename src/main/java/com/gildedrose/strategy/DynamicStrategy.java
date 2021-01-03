@@ -1,6 +1,6 @@
 package com.gildedrose.strategy;
 
-import com.gildedrose.Item;
+import com.gildedrose.item.UnionItemAdapter;
 import com.gildedrose.strategy.util.RealTimeSalesDataCollector;
 
 /**
@@ -8,7 +8,7 @@ It is a REAL strategy that update items quality by status data
 */
 public class DynamicStrategy implements UpdateStrategy{
     @Override
-    public void updateItem(Item item) {
+    public void updateItem(UnionItemAdapter item) {
         RealTimeSalesDataCollector collector = RealTimeSalesDataCollector.instance();
         RealTimeSalesDataCollector.SalesData salesData = collector.fetchSalesDataOf(item.getName());
         if (salesData.getCount() > 1) {

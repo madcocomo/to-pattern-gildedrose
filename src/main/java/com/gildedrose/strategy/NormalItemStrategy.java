@@ -1,10 +1,10 @@
 package com.gildedrose.strategy;
 
-import com.gildedrose.Item;
+import com.gildedrose.item.UnionItemAdapter;
 
 public class NormalItemStrategy extends UpdateStrategyBase {
     @Override
-    public void updateItem(Item item) {
+    public void updateItem(UnionItemAdapter item) {
         decreaseQuality(item);
 
         decreaseSellIn(item);

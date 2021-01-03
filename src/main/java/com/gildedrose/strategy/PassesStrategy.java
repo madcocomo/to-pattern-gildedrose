@@ -1,10 +1,10 @@
 package com.gildedrose.strategy;
 
-import com.gildedrose.Item;
+import com.gildedrose.item.UnionItemAdapter;
 
 public class PassesStrategy extends UpdateStrategyBase {
     @Override
-    public void updateItem(Item item) {
+    public void updateItem(UnionItemAdapter item) {
         increaseQuality(item);
         if (item.getSellIn() < 11) {
             increaseQuality(item);

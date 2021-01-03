@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import com.gildedrose.item.*;
 import com.gildedrose.strategy.*;
 
 import java.util.Arrays;
@@ -7,22 +8,25 @@ import java.util.Arrays;
 class GildedRose {
     SelfUpdateItem[] items;
 
-    static Item createItem(String name, int sellIn, int quality) {
-        return new Item(name, sellIn, quality);
+    static UnionItemAdapter createItem(String name, int sellIn, int quality) {
+        if (name.matches("^[0-9].*")) {
+            return new AlienItemAdapter(new AlienItem(name, sellIn, quality));
+        }
+        return new ItemAdapter(new Item(name, sellIn, quality));
     }
 
-    public GildedRose(Item[] items) {
+    public GildedRose(UnionItemAdapter[] items) {
         this.items = Arrays.stream(items)
                 .map(this::toSelfUpdateItem)
                 .toArray(SelfUpdateItem[]::new);
     }
 
-    private SelfUpdateItem toSelfUpdateItem(Item item) {
+    private SelfUpdateItem toSelfUpdateItem(UnionItemAdapter item) {
         UpdateStrategy strategy = getUpdateStrategyFor(item);
         return new SelfUpdateItem(item, strategy);
     }
 
-    private UpdateStrategy getUpdateStrategyFor(Item item) {
+    private UpdateStrategy getUpdateStrategyFor(UnionItemAdapter item) {
         UpdateStrategy strategy;
         if (item.getName().equals("Aged Brie")) {
             strategy = new AgedBrieStrategy();
