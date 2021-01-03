@@ -1,0 +1,19 @@
+package com.gildedrose.strategy;
+
+import com.gildedrose.Item;
+import com.gildedrose.strategy.util.RealTimeSalesDataCollector;
+
+/**
+It is a REAL strategy that update items quality by status data
+*/
+public class DynamicStrategy implements UpdateStrategy{
+    @Override
+    public void updateItem(Item item) {
+        RealTimeSalesDataCollector collector = RealTimeSalesDataCollector.instance();
+        RealTimeSalesDataCollector.SalesData salesData = collector.fetchSalesDataOf(item.name);
+        if (salesData.getCount() > 1) {
+            // ...
+        }
+        throw new RuntimeException("It is too complex that cannot be called in unit test");
+    }
+}
