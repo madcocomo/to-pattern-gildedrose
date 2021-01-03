@@ -24,11 +24,11 @@ class GildedRose {
 
     private UpdateStrategy getUpdateStrategyFor(Item item) {
         UpdateStrategy strategy;
-        if (item.name.equals("Aged Brie")) {
+        if (item.getName().equals("Aged Brie")) {
             strategy = new AgedBrieStrategy();
-        } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+        } else if (item.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
             strategy = new PassesStrategy();
-        } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
+        } else if (item.getName().equals("Sulfuras, Hand of Ragnaros")) {
             strategy = new SulfurasStrategy();
         } else {
             strategy = new NormalItemStrategy();

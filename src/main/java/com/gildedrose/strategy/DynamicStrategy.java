@@ -10,7 +10,7 @@ public class DynamicStrategy implements UpdateStrategy{
     @Override
     public void updateItem(Item item) {
         RealTimeSalesDataCollector collector = RealTimeSalesDataCollector.instance();
-        RealTimeSalesDataCollector.SalesData salesData = collector.fetchSalesDataOf(item.name);
+        RealTimeSalesDataCollector.SalesData salesData = collector.fetchSalesDataOf(item.getName());
         if (salesData.getCount() > 1) {
             // ...
         }
