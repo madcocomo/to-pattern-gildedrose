@@ -11,8 +11,9 @@ public class DemoTest {
     @Test
     public void decoratorDemo() throws IOException {
         InputStream stream = new FileInputStream("/test.txt");
-        new BufferedInputStream(stream);
-        new GZIPInputStream(stream);
+        stream = new BufferedInputStream(stream);
+        stream = new GZIPInputStream(stream);
+        stream.read();
     }
 
     @Test
