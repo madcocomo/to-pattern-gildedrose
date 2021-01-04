@@ -2,9 +2,19 @@ package com.gildedrose;
 
 import org.junit.Test;
 
+import java.io.*;
+import java.util.zip.GZIPInputStream;
+
 import static org.junit.Assert.*;
 
 public class DemoTest {
+    @Test
+    public void decoratorDemo() throws IOException {
+        InputStream stream = new FileInputStream("/test.txt");
+        new BufferedInputStream(stream);
+        new GZIPInputStream(stream);
+    }
+
     @Test
     public void flyweightDemo() {
         String s1 = "Hello";
